@@ -4,19 +4,19 @@ const _ = require('lodash')
 const{GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt} = graphql;
 
 var books = [
-    {name: 'Book1', genre: 'Fantasy', id: "1", authorId: "1"},
-    {name: 'Book2', genre: 'Sports', id: "2", authorId: "2"},
-    {name: 'Book3', genre: 'Romantic', id: "3", authorId: "3"},
-    {name: 'Book4', genre: 'Biography', id: "4", authorId: "4"}
-]
-
+    { name: 'Name of the Wind', genre: 'Fantasy', id: '1', authorId: '1' },
+    { name: 'The Final Empire', genre: 'Fantasy', id: '2', authorId: '2' },
+    { name: 'The Hero of Ages', genre: 'Fantasy', id: '4', authorId: '2' },
+    { name: 'The Long Earth', genre: 'Sci-Fi', id: '3', authorId: '3' },
+    { name: 'The Colour of Magic', genre: 'Fantasy', id: '5', authorId: '3' },
+    { name: 'The Light Fantastic', genre: 'Fantasy', id: '6', authorId: '3' },
+];
 
 var authors = [
-    {name: 'Author1', age: 20, id: "1"},
-    {name: 'Author2', age: 28, id: "2"},
-    {name: 'Author3', age: 35, id: "3"},
-    {name: 'Author4', age: 42, id: "4"}
-]
+    { name: 'Patrick Rothfuss', age: 44, id: '1' },
+    { name: 'Brandon Sanderson', age: 42, id: '2' },
+    { name: 'Terry Pratchett', age: 66, id: '3' }
+];
 
 const BookType = new GraphQLObjectType({
     name: 'Book',
