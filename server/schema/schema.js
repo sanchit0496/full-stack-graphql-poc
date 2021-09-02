@@ -4,7 +4,7 @@ const Book = require('../models/book.js')
 const _ = require('lodash')
 
 const{GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt
-, GraphQLList} = graphql;
+, GraphQLList, GraphQLNonNull} = graphql;
 
 // var books = [
 //     { name: 'Name of the Wind', genre: 'Fantasy', id: '1', authorId: '1' },
@@ -100,7 +100,7 @@ const Mutation = new GraphQLObjectType({
         addAuthor:{
             type: AuthorType,
             args: {
-                name: {type: GraphQLString},
+                name: {type: new GraphQLNonNull(GraphQLString)},
                 age: {type: GraphQLInt}
             },
             resolve(parent, args){
