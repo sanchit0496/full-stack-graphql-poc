@@ -1,0 +1,73 @@
+1) Adding Books
+
+mutation{
+	addBook(name: "Cricket Samrat", genre:"Sports", authorId: "61306522eb2536a91b5ebe90"){
+    name
+    genre
+  }
+}
+
+2) Adding Authors
+
+mutation{
+  addAuthor(name: "Advik", age: 4){
+    name
+    age
+  }
+}
+
+3) detail of author by authorID
+
+{
+    author(id: "61305f22138cf59779a0b4a2"){
+        name
+    }
+}
+
+4) All Books
+
+{
+  books{
+    name
+  }
+}
+
+5) All Authors
+
+{
+  authors{
+    name
+  }
+}
+
+6) Book by Book Id
+
+{
+  book(id: "613080016bd8588bef831450"){
+    name
+  }
+}
+
+
+
+7) Book with author names
+
+{
+  books{
+    name
+    author{
+      name
+    }
+  }
+}
+
+8) The books written by a particular author
+
+{
+  author(id: "61305f22138cf59779a0b4a2"){
+    name
+    book{
+      name
+    }
+  }
+}
