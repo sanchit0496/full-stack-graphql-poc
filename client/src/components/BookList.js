@@ -4,6 +4,7 @@ const getBooks = gql`
     {
         books{
             name
+            id
         }
     }
 `;
@@ -26,7 +27,7 @@ function BookList() {
             </ul>
             {
                 data.books.map((book) => {
-                    return <li>{book.name}</li>
+                    return <li key = {book.id}>{book.name}</li>
                 })
             }
         </div>
