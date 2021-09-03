@@ -1,23 +1,51 @@
-import {gql} from "@apollo/client";
+import {useQuery, gql} from "@apollo/client";
 
+const getBooksQuery = gql`
+  query {
+    books{
+      name
+      id
+    }
+  }
+`
 
-const getBooks = gql`
-    {
+// query for getting ONE book
+const getBookQuery = gql`
+  query($id: ID){
+    book(id: $id){
+      id
+      name
+      genre
+      author{
+        id
+        name
+        age
         books{
-            name
-            id
+          name
+          id
         }
+      }
     }
-`;
+  }
+`
 
-
-const getAuthors = gql`
-    {
-        authors{
-            name
-            id
-        }
+const getAuthorsQuery = gql`
+  query {
+    authors{
+      name
+      id
     }
-`;
+  }
+`
 
-export {getBooks, getAuthors};
+// mutation($variable) << allows variables to be passed to the mutation
+const addBookMutation = gql`
+  mutation($name: String!, $genre: String!, $authorId: ID!) {
+    addBook(name: $name, genre: $genre, authorId: $authorId){
+      name
+      id
+    }
+  }
+`
+
+export { getBooksQuery, getAuthorsQuery, addBookMutation };
