@@ -9,8 +9,7 @@ const getBooks = gql`
     }
 `;
 
-
-function BookList() {
+export default function BookList() {
     const{loading, error, data} = useQuery(getBooks)
     if(loading){
         return <p>Loading</p>
@@ -33,5 +32,3 @@ function BookList() {
         </div>
     );
 }
-
-export default BookList;
